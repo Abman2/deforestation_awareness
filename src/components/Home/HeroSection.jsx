@@ -1,6 +1,6 @@
-export const HeroSection = ({heading,details,button}) => {
+export const HeroSection = ({heading,details,button,bg}) => {
      return (
-          <div className="bg-hero_bg md:bg-right bg-no-repeat bg-contain h-[calc(100vh-6rem)] md:h-fit lg:h-[calc(100vh-6rem)] lg:min-h-[calc(100vh-6rem)] bg-green-50">
+          <div className={`${bg} md:bg-right bg-no-repeat bg-contain h-[calc(100vh-6rem)] md:h-fit lg:h-[calc(100vh-6rem)] lg:min-h-[calc(100vh-6rem)] bg-green-50`}>
                <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-4 md:px-12 h-full md:py-20 lg:py-0">
                     <div className="flex flex-col justify-end sm:justify-center items-center md:items-start space-y-6 -mt-10 sm:mt-0 md:space-y-6 h-full text-center md:text-left md:w-1/2 lg:w-full">
                          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-green-700">

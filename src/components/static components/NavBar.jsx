@@ -23,11 +23,17 @@ export const NavBar = () => {
       {/* Desktop Navigation */}
       <nav className="hidden sm:flex gap-10">
         <NavLink to="/" className={navLinkClasses}>Home</NavLink>
-        <NavLink to="/about" className={navLinkClasses}>About Us</NavLink>
-        <NavLink to="/collections" className={navLinkClasses}>Blog</NavLink>
-        <NavLink to="/donate" className={navLinkClasses}>Donate</NavLink>
+         <NavLink to="/about" className={navLinkClasses}>About Us</NavLink>
+        <NavLink to="/learn" className={navLinkClasses}>Learn</NavLink>
+        
+        <NavLink to="/statistics" className={navLinkClasses}>Statistics</NavLink>
+        
         <NavLink to="/gallery" className={navLinkClasses}>Gallery</NavLink>
-        <NavLink to="/contact" className={navLinkClasses}>Contact</NavLink>
+               <NavLink to="/quiz" className={navLinkClasses}>Quiz</NavLink>
+       
+        
+          <NavLink to="/contact" className={navLinkClasses}>Contact</NavLink>
+  
       </nav>
 
       {/* Mobile Menu Button */}

@@ -32,7 +32,7 @@ export const VisionAndMission = () => {
                               <img
                                    src='/../../src/assets/About/OurVision.png'
                                    alt='Our vision'
-                                   className='w-full rounded-lg shadow-md object-cover aspect-video'
+                                   className='w-full rounded-lg shadow-md object-cover aspect-video hover:scale-105 transition-transform duration-300'
                               />
                          </div>
                          <div>
@@ -59,7 +59,7 @@ export const VisionAndMission = () => {
                     <img
                          src='../src/assets/About/whoareweabout.png'
                          alt='Who Are We'
-                         className=' mx-auto rounded-md object-contain w-full'
+                         className=' mx-auto rounded-md object-contain w-full hover:scale-105 transition-transform duration-300'
                     />
                </div>
           </div>
