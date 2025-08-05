@@ -1,6 +1,6 @@
 import { Route, createRoutesFromElements, createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Home } from './pages/Home';
-import { RootLayout } from './Layout/RootLayout';
+import { RootLayout } from './layout/RootLayout';
 import { AboutUs } from './pages/AboutUs';
 import ErrorPage from './pages/ErrorPage';
 import { Statistics } from './pages/Statistics';
