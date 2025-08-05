@@ -1,5 +1,9 @@
 import React from 'react';
 
+// ✅ Import images
+import beforeDeforestation from '../../assets/Statistics/bf_deforestation.jpg';
+import afterDeforestation from '../../assets/Statistics/af_deforestation.png';
+
 export const ForestIntro = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -15,7 +19,7 @@ export const ForestIntro = () => {
           </div>
           <div>
             <img
-              src="/../../src/assets/Statistics/bf_deforestation.jpg"
+              src={beforeDeforestation}
               alt="Before Deforestation"
               className="w-full rounded-lg shadow-lg object-cover aspect-video hover:scale-105 transition-transform duration-300"
             />
@@ -32,7 +36,7 @@ export const ForestIntro = () => {
           </div>
           <div>
             <img
-              src="/../../src/assets/Statistics/af_deforestation.png"
+              src={afterDeforestation}
               alt="After Deforestation"
               className="w-full rounded-lg shadow-lg object-cover aspect-video hover:scale-105 transition-transform duration-300"
             />

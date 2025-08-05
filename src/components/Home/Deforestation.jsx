@@ -1,8 +1,10 @@
 import React from 'react';
+import deforestation1 from '../../assets/Home/deforestation1.png';
+import deforestation2 from '../../assets/Home/deforestation2.png';
 
 export const Deforestation = () => {
   return (
-    <main className="max-w-7xl mx-auto px-4 lg:h-screen lg:px-0 flex flex-col md:flex-row items-center md:space-x-10 space-y-10 lg:space-y-0 py-10 lg:py-0 ">
+    <main className="max-w-7xl mx-auto px-4 lg:h-screen lg:px-0 flex flex-col md:flex-row items-center md:space-x-10 space-y-10 lg:space-y-0 py-10 lg:py-0">
       {/* Text Section */}
       <div className="md:w-1/2 lg:text-left space-y-6">
         <h1 className="text-3xl lg:text-5xl font-bold text-green-800">
@@ -17,14 +19,14 @@ export const Deforestation = () => {
       </div>
 
       {/* Image Section */}
-      <div className="md:w-1/2 flex  justify-center lg:justify-end gap-6 h-80 lg:h-3/4">
+      <div className="md:w-1/2 flex justify-center lg:justify-end gap-6 h-80 lg:h-3/4">
         <img
-          src="src/assets/Home/deforestation1.png"
+          src={deforestation1}
           alt="Forest before deforestation"
           className="w-1/2 h-full object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
         />
         <img
-          src="src/assets/Home/deforestation2.png"
+          src={deforestation2}
           alt="Cleared land after deforestation"
           className="w-1/2 h-full object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-300"
         />

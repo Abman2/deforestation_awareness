@@ -1,5 +1,9 @@
 import React from 'react';
 
+// ✅ Import images as variables
+import deforestation1 from '../../assets/Home/deforestation1.png';
+import deforestation2 from '../../assets/Home/deforestation2.png';
+
 export const Deforestation = () => {
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-start text-justify sm:text-left">
@@ -12,11 +16,11 @@ export const Deforestation = () => {
         <p className="text-gray-700 text-base leading-relaxed sm:text-lg">
           Deforestation is the large-scale removal of trees from forested areas, often resulting in the permanent destruction of ecosystems. It typically occurs when land is cleared for agriculture, logging, mining, or urban development. Forests, especially tropical rainforests, are among the most biodiverse habitats on Earth, and their loss has far-reaching consequences.
         </p>
-         <img
-            src="../../src/assets/Home/deforestation2.png"
-            alt="Lush green forest"
-            className="w-full h-full object-cover aspect-video sm:hidden"
-          />
+        <img
+          src={deforestation2}
+          alt="Cleared forest area"
+          className="w-full h-full object-cover aspect-video sm:hidden"
+        />
         <p className="text-gray-700 text-base leading-relaxed sm:text-lg">
           This process not only eliminates trees but also disrupts the complex web of life that depends on forest environments. Indigenous communities, wildlife species, and even global climate systems are affected. Trees play a crucial role in absorbing carbon dioxide, regulating rainfall, and maintaining soil health.
         </p>
@@ -29,7 +33,7 @@ export const Deforestation = () => {
       <div className="space-y-6 flex flex-col">
         <div className="w-full rounded-lg overflow-hidden shadow-md">
           <img
-            src="../../src/assets/Home/deforestation1.png"
+            src={deforestation1}
             alt="Lush green forest"
             className="w-full h-full object-cover aspect-video"
           />
