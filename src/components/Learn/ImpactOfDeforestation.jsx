@@ -9,25 +9,25 @@ export const ImpactOfDeforestation = () => {
         title: 'Loss of Biodiversity',
         description:
           'Deforestation destroys the habitats of countless species, leading to extinction and loss of genetic diversity in fragile ecosystems.',
-        img: 'https://via.placeholder.com/400x250?text=Loss+of+Biodiversity',
+        img: 'https://0901.static.prezi.com/preview/v2/etiemkqf2oujusuttiodzanknh6jc3sachvcdoaizecfr3dnitcq_3_0.png',
       },
       {
         title: 'Climate Change',
         description:
           'Forests act as carbon sinks. When they are cleared, CO₂ is released into the atmosphere, intensifying global warming.',
-        img: 'https://via.placeholder.com/400x250?text=Climate+Change',
+        img: 'https://tse4.mm.bing.net/th/id/OIP.imEHcAnEkEQ9fIxe6ouoaAHaE8?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3',
       },
       {
         title: 'Disrupted Water Cycles',
         description:
           'Trees help regulate the water cycle by returning moisture to the air. Without them, rainfall patterns change and droughts increase.',
-        img: 'https://via.placeholder.com/400x250?text=Water+Cycle+Disruption',
+        img: 'https://tse3.mm.bing.net/th/id/OIP.chBiuwjAnNvKd2hRnWgL8gHaFj?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3',
       },
       {
         title: 'Soil Erosion & Degradation',
         description:
           'Without tree roots, soil becomes loose and washes away, degrading land quality and affecting agricultural productivity.',
-        img: 'https://via.placeholder.com/400x250?text=Soil+Erosion',
+        img: 'https://th.bing.com/th/id/R.7d209b277ae863c4aa000d41d6470e8a?rik=ebVPllv0%2bV38bQ&pid=ImgRaw&r=0',
       },
     ],
     social: [
@@ -35,25 +35,25 @@ export const ImpactOfDeforestation = () => {
         title: 'Displacement of Indigenous Peoples',
         description:
           'Many indigenous communities are forced to leave their ancestral lands, losing homes, culture, and access to resources.',
-        img: 'https://via.placeholder.com/400x250?text=Indigenous+Displacement',
+        img: 'https://tse1.mm.bing.net/th/id/OIP.2AoUqL6YbFGTyEk3dvmUrwHaE5?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3',
       },
       {
         title: 'Food and Water Insecurity',
         description:
           'Loss of forests affects water sources and agriculture, causing scarcity of food and clean water in vulnerable regions.',
-        img: 'https://via.placeholder.com/400x250?text=Food+Water+Insecurity',
+        img: 'https://th.bing.com/th/id/R.540efe25cfc0a833212dc474169f7c2d?rik=qcWuaMT2eukLuw&riu=http%3a%2f%2f2.bp.blogspot.com%2f_K1rN7fRrhjk%2fSpf6ku-e93I%2fAAAAAAAAAMY%2fr3rxnxlVX74%2fs400%2f2477719111_6b9daa5386.jpg&ehk=MkkVgygq8THWRV8mxFOJ3u3O8JrAeReIUkMqbEcwnxs%3d&risl=&pid=ImgRaw&r=0',
       },
       {
         title: 'Health Risks',
         description:
           'Deforestation increases the spread of zoonotic diseases and worsens air quality, affecting public health.',
-        img: 'https://via.placeholder.com/400x250?text=Health+Risks',
+        img: 'https://tse2.mm.bing.net/th/id/OIP.gZZmKALoa_pXNbTlZm-1jAHaD5?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3',
       },
       {
         title: 'Loss of Livelihood',
         description:
           'Millions depend on forests for fuel, food, and jobs. Forest destruction strips these vital income sources.',
-        img: 'https://via.placeholder.com/400x250?text=Loss+of+Livelihood',
+        img: 'https://tse2.mm.bing.net/th/id/OIP.M3EWhP0nv1Zm6TcL1Z73CgHaFj?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3',
       },
     ],
   };

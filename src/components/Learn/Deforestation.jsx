@@ -12,6 +12,11 @@ export const Deforestation = () => {
         <p className="text-gray-700 text-base leading-relaxed sm:text-lg">
           Deforestation is the large-scale removal of trees from forested areas, often resulting in the permanent destruction of ecosystems. It typically occurs when land is cleared for agriculture, logging, mining, or urban development. Forests, especially tropical rainforests, are among the most biodiverse habitats on Earth, and their loss has far-reaching consequences.
         </p>
+         <img
+            src="../../src/assets/Home/deforestation2.png"
+            alt="Lush green forest"
+            className="w-full h-full object-cover aspect-video sm:hidden"
+          />
         <p className="text-gray-700 text-base leading-relaxed sm:text-lg">
           This process not only eliminates trees but also disrupts the complex web of life that depends on forest environments. Indigenous communities, wildlife species, and even global climate systems are affected. Trees play a crucial role in absorbing carbon dioxide, regulating rainfall, and maintaining soil health.
         </p>

@@ -6,25 +6,25 @@ export const CausesOfDeforestation = () => {
       title: 'Agricultural Expansion',
       description:
         'The largest driver of deforestation. Forests are cleared for crops (like soy, palm oil) and livestock grazing, especially in tropical regions.',
-      img: 'https://via.placeholder.com/400x250?text=Agricultural+Expansion',
+      img: 'https://tse4.mm.bing.net/th/id/OIP.NgbJyg7hx8s9aGn9YR5RiAHaE8?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3',
     },
     {
       title: 'Logging and Timber Harvesting',
       description:
         'Legal and illegal logging for timber, fuelwood, and paper products contributes to significant forest degradation globally.',
-      img: 'https://via.placeholder.com/400x250?text=Logging+and+Timber',
+      img: 'https://tse1.mm.bing.net/th/id/OIP.xCF4tc4k33Lt-BAVhitSvwHaEF?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3',
     },
     {
       title: 'Urbanization and Infrastructure',
       description:
         'Growing cities, roads, and mining operations demand land, leading to permanent forest loss, especially near urban centers.',
-      img: 'https://via.placeholder.com/400x250?text=Urbanization',
+      img: 'https://tse2.mm.bing.net/th/id/OIP.kiNO32O5gPGcnX6dlt0J8gHaDt?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3',
     },
     {
       title: 'Fire and Climate Change',
       description:
         'Both natural and human-induced fires destroy vast areas of forest annually. Droughts and warming make forests more fire-prone.',
-      img: 'https://via.placeholder.com/400x250?text=Fire+and+Climate+Change',
+      img: 'https://tse3.mm.bing.net/th/id/OIP.0cqS0Ju31q4gTHkHwW3lqAHaE8?cb=thfc1&rs=1&pid=ImgDetMain&o=7&rm=3',
     },
   ];
 
