@@ -1,3 +1,5 @@
+import { NavLink } from "react-router";
+
 export const HeroSection = ({heading,details,button,bg}) => {
      return (
           <div className={`${bg} md:bg-right bg-no-repeat bg-contain h-[calc(100vh-6rem)] md:h-fit lg:h-[calc(100vh-6rem)] lg:min-h-[calc(100vh-6rem)] bg-green-50`}>
@@ -10,7 +12,7 @@ export const HeroSection = ({heading,details,button,bg}) => {
                              {details}
                          </p>
                          <button className="px-6 py-2 sm:px-8 sm:py-3 bg-green-600 text-white rounded text-lg sm:text-xl font-semibold hover:bg-green-700 transition">
-                              {button}
+                              <NavLink to={"learn"}>{button}</NavLink>
                          </button>
                     </div>
                </div>
