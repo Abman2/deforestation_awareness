@@ -9,7 +9,7 @@ export const Home = () => {
      return (
           <>
                <HeroSection
-                    heading={'Save Forest'}
+                    heading={'Save Our Forest'}
                     bg={"bg-hero_bg"} 
                     details={
                          ' Forests are vital to life on Earth — they clean our air, filter our water, and provide habitat to countless species. Every tree lost to deforestation is a step backward for climate and biodiversity. Let’s take action now.'
