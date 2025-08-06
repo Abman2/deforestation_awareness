@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 
 const rawQuizData = [
@@ -123,7 +124,7 @@ export const QuizPage = () => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [score, setScore] = useState(0);
   const [showResult, setShowResult] = useState(false);
-  const [isAnsweredCorrectly, setIsAnsweredCorrectly] = useState(false);
+  const [hasAnswered, setHasAnswered] = useState(false);
 
   useEffect(() => {
     const shuffled = shuffleArray(
@@ -136,31 +137,20 @@ export const QuizPage = () => {
   }, []);
 
   const handleOptionClick = (index) => {
+    if (hasAnswered) return;
     const correctAnswerIndex = quizData[currentQuestion].options.indexOf(
       rawQuizData.find(q => q.question === quizData[currentQuestion].question).options[quizData[currentQuestion].answer]
     );
-
     setSelectedOption(index);
-
+    setHasAnswered(true);
     if (index === correctAnswerIndex) {
-      setIsAnsweredCorrectly(true);
-    } else {
-      setIsAnsweredCorrectly(false);
+      setScore(score + 1);
     }
   };
 
   const handleNext = () => {
-    const correctAnswerIndex = quizData[currentQuestion].options.indexOf(
-      rawQuizData.find(q => q.question === quizData[currentQuestion].question).options[quizData[currentQuestion].answer]
-    );
-
-    if (selectedOption === correctAnswerIndex) {
-      setScore(score + 1);
-    }
-
     setSelectedOption(null);
-    setIsAnsweredCorrectly(false);
-
+    setHasAnswered(false);
     if (currentQuestion + 1 < quizData.length) {
       setCurrentQuestion(currentQuestion + 1);
     } else {
@@ -180,15 +170,14 @@ export const QuizPage = () => {
     setSelectedOption(null);
     setScore(0);
     setShowResult(false);
-    setIsAnsweredCorrectly(false);
+    setHasAnswered(false);
   };
 
   if (quizData.length === 0) return null;
 
-  const correctAnswerText = rawQuizData.find(q => q.question === quizData[currentQuestion].question).options[
-    rawQuizData.find(q => q.question === quizData[currentQuestion].question).answer
-  ];
-  const explanation = rawQuizData.find(q => q.question === quizData[currentQuestion].question).explanation;
+  const currentRawQuestion = rawQuizData.find(q => q.question === quizData[currentQuestion].question);
+  const correctAnswerText = currentRawQuestion.options[currentRawQuestion.answer];
+  const explanation = currentRawQuestion.explanation;
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-16 text-center ">
@@ -224,11 +213,9 @@ export const QuizPage = () => {
               <button
                 key={index}
                 onClick={() => handleOptionClick(index)}
-                disabled={isAnsweredCorrectly}
+                disabled={hasAnswered}
                 className={`border px-4 py-3 rounded text-left transition-colors text-gray-800 ${
-                  selectedOption === index
-                    ? 'bg-green-100 border-green-500'
-                    : 'hover:bg-gray-100 border-gray-300'
+                  selectedOption === index ? 'bg-green-100 border-green-500' : 'hover:bg-gray-100 border-gray-300'
                 }`}
               >
                 {option}
@@ -236,7 +223,7 @@ export const QuizPage = () => {
             ))}
           </div>
 
-          {selectedOption !== null && (
+          {hasAnswered && (
             <div className="mt-4 text-sm text-left text-gray-700">
               <p className="font-medium">Correct Answer: {correctAnswerText}</p>
               <p className="mt-1 italic">Explanation: {explanation}</p>
@@ -245,7 +232,7 @@ export const QuizPage = () => {
 
           <button
             onClick={handleNext}
-            disabled={!isAnsweredCorrectly}
+            disabled={!hasAnswered}
             className="mt-6 px-6 py-2 bg-green-700 text-white font-medium rounded disabled:opacity-50"
           >
             {currentQuestion + 1 === quizData.length ? 'Finish' : 'Next'}

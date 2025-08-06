@@ -7,6 +7,7 @@ import { Statistics } from './pages/Statistics';
 import { Learn } from './pages/Learn';
 import { QuizPage } from './pages/Quiz';
 import { ContactForm } from './components/Contact/ContactForm';
+import BlogPage from './pages/Blog';
 
 function App() {
      const router = createBrowserRouter(
@@ -18,6 +19,7 @@ function App() {
                     <Route path='learn' element={<Learn/>} />
                     <Route path='quiz' element={<QuizPage/>} />
                     <Route path='contact' element={<ContactForm/>} />
+                     <Route path='blog' element={<BlogPage/>} />
                </Route>
           )
      );

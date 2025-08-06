@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
-
+import { Link } from 'react-router';
 const Footer = () => {
   return (
     <footer className="bg-green-50 py-10 px-5 sm:px-10 lg:px-20 rounded-t-2xl">
@@ -30,8 +30,7 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold text-lg mb-3">About Us</h4>
           <p className="text-sm text-gray-700 mb-4">
-            Earth Renew is committed to planting trees in areas most affected by deforestation and pollution, prioritizing
-            sustainable solutions for a healthier planet.
+           Deeproot is committed to raising awareness about the importance of forests and the devastating effects of deforestation. By empowering communities with knowledge, Deeproot aims to inspire sustainable practices that protect our planet's vital ecosystems.
           </p>
           <div className="flex gap-3">
             <FaFacebookF className="text-green-700 hover:text-green-900 cursor-pointer" />
@@ -44,12 +43,12 @@ const Footer = () => {
         {/* Quick Links */}
         <div>
           <h4 className="font-semibold text-lg mb-3">Quick Link</h4>
-          <ul className="space-y-2 text-sm text-gray-700">
-            <li><a href="#" className="hover:underline">Home</a></li>
-            <li><a href="#" className="hover:underline">About Us</a></li>
-            <li><a href="#" className="hover:underline">Our Work</a></li>
-            <li><a href="#" className="hover:underline">Green Effect</a></li>
-            <li><a href="#" className="hover:underline">Contact Us</a></li>
+          <ul className="space-y-1 text-sm text-gray-700">
+               <li><Link to={"/"} className="hover:underline">Home</Link></li>
+            <li><Link to={"/about"} className="hover:underline">About Us</Link></li>
+            <li><Link to={"/learn"} className="hover:underline">Learn</Link></li>
+            <li><Link to={"/quiz"} className="hover:underline">Quiz</Link></li>
+            <li><Link to={"contact"} className="hover:underline">Contact Us</Link></li>
           </ul>
         </div>
 
@@ -66,7 +65,7 @@ const Footer = () => {
 
       {/* Footer Bottom */}
       <div className="mt-10 border-t border-gray-200 pt-5 text-center text-sm text-gray-600">
-        © 2025 Earth Renew. All rights reserved.
+        © 2025 Deep Root. All rights reserved.
       </div>
     </footer>
   );
