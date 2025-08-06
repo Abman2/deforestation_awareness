@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { NavLink } from 'react-router';
+import ScrollToTop from './ScrollToTop';
 const Footer = () => {
   return (
     <footer className="bg-green-50 py-10 px-5 sm:px-10 lg:px-20 rounded-t-2xl">
@@ -44,11 +45,12 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold text-lg mb-3">Quick NavLink</h4>
           <ul className="space-y-1 text-sm text-gray-700">
-               <li><NavLink to={"/"} className="hover:underline">Home</NavLink></li>
-            <li><NavLink to={"/about"} className="hover:underline">About Us</NavLink></li>
-            <li><NavLink to={"/learn"} className="hover:underline">Learn</NavLink></li>
-            <li><NavLink to={"/quiz"} className="hover:underline">Quiz</NavLink></li>
-            <li><NavLink to={"contact"} className="hover:underline">Contact Us</NavLink></li>
+            <ScrollToTop/>
+               <li><NavLink to="/" className="hover:underline">Home</NavLink></li>
+            <li><NavLink to="/about" className="hover:underline">About Us</NavLink></li>
+            <li><NavLink to="/learn" className="hover:underline">Learn</NavLink></li>
+            <li><NavLink to="quiz" className="hover:underline">Quiz</NavLink></li>
+            <li><NavLink to="contact" className="hover:underline">Contact Us</NavLink></li>
           </ul>
         </div>
 

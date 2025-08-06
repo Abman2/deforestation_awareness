@@ -12,6 +12,7 @@ import BlogPage from './pages/Blog';
 function App() {
      const router = createBrowserRouter(
           createRoutesFromElements(
+               
                <Route path='/' element={<RootLayout />} errorElement={<ErrorPage />}>
                     <Route index element={<Home />} />
                     <Route path='about' element={<AboutUs />} />
