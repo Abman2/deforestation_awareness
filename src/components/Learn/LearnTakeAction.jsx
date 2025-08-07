@@ -15,21 +15,21 @@ export const LearnTakeAction = () => {
       description:
         'Donate to or volunteer with NGOs working to replant trees and restore ecosystems.',
       img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjlHqlvww4TKOEGjytWNt_PveObBHPb8lsNg&s',
-      link: './blog/3',
+      link: '/./blog/3',
     },
     {
       title: 'Buy Responsibly',
       description:
         'Choose products certified by FSC or Rainforest Alliance to reduce deforestation-linked demand.',
       img: 'https://alifeofcontradictions.com/wp-content/uploads/2014/05/GreenBag.png',
-      link: './blog/3',
+      link: '/./blog/3',
     },
     {
       title: 'Raise Awareness',
       description:
         'Use your voice—online and offline—to share facts or push for stronger forest protection policies.',
       img: 'https://i0.wp.com/world-opportunities.com/wp-content/uploads/2024/02/How-to-raise-awareness-and-advocate-for-a-issue.gif?fit=1024%2C576&ssl=1',
-      link: './blog/3',
+      link: '/./blog/3',
     },
    
   ];
@@ -65,14 +65,14 @@ export const LearnTakeAction = () => {
                   Go to Page →
                 </Link>
               ) : (
-                <a
-                  href={item.link}
+                <Link
+                  to={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-4 inline-block text-sm font-medium text-green-800 hover:text-green-600 transition-colors"
                 >
                   Learn More →
-                </a>
+                </Link>
               )}
             </div>
           </div>
