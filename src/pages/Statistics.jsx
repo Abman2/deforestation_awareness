@@ -4,8 +4,7 @@ import { Begin } from '../components/Statistics/Begin';
 import { ForestIntro } from '../components/Statistics/StatisticsIntro';
 import { CountryCount } from '../components/Statistics/CountryDeforestationCount';
 import { DeforestationCount } from '../components/Statistics/YearlyDeforestationCount';
-import DeforestationStats from '../components/Statistics/DeforestationStats';
-import { Link } from 'react-router';
+import image_src from "../../src/assets/Home/statistics2.png"
 import { ReadyToTest } from '../components/static components/ReadyToTest';
 
 export const Statistics = () => {
@@ -15,7 +14,7 @@ export const Statistics = () => {
                     heading={'Deforestation Statistics'}
                     bg={'bg-statistics_bg'}
                     button={'Learn'}
-                    image_src={"/src/assets/Home/statistics2.png"}
+                    image_src={image_src}
                     details={
                          'Numbers reveal the true scale of forest loss that photos alone cannot show. Statistics help us understand trends, identify hotspots, and measure the effectiveness of conservation efforts.'
                     }
