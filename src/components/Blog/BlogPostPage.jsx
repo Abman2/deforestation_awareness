@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import blogPosts from './blogData';
 import ReactMarkdown from 'react-markdown';
+import { ReadyToTest } from '../static components/ReadyToTest';
 
 const BlogPostPage = () => {
   const { id } = useParams();
@@ -54,6 +55,9 @@ const BlogPostPage = () => {
               em: ({ node, ...props }) => (
                 <em className='italic text-gray-600' {...props} />
               ),
+              img: ({ node, ...props }) => (
+                <img className='w-1/2  rounded-md' {...props} />
+              ),
             }}
           >
             {post.content}
@@ -83,7 +87,10 @@ const BlogPostPage = () => {
               </li>
             ))}
           </ul>
+          <ReadyToTest/>
         </aside>
+        
+       
       </div>
     </div>
   );

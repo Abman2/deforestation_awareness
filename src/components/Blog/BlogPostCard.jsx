@@ -8,7 +8,7 @@ const BlogPostCard = ({ post }) => {
         <img
           src={post.image}
           alt={post.title}
-          className="w-full h-52 object-cover transition-transform duration-300 group-hover:scale-105"
+          className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
         />
         <div className="absolute top-0 left-0 bg-gradient-to-r from-black/40 to-transparent w-full h-full opacity-0 group-hover:opacity-100 transition duration-300" />
       </div>

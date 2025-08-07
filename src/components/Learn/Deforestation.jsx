@@ -25,7 +25,7 @@ export const Deforestation = () => {
           This process not only eliminates trees but also disrupts the complex web of life that depends on forest environments. Indigenous communities, wildlife species, and even global climate systems are affected. Trees play a crucial role in absorbing carbon dioxide, regulating rainfall, and maintaining soil health.
         </p>
         <p className="text-gray-700 text-base leading-relaxed sm:text-lg">
-          When forests are cut down or burned, the carbon stored in trees is released into the atmosphere, contributing to climate change. Deforestation also leads to soil erosion, reduced water quality, and increased risk of natural disasters like floods and landslides. In many cases, the land is never fully restored, leaving behind degraded landscapes.
+          When forests are cut down or burned, the carbon stored in trees is released into the atmosphere, contributing to climate change. Deforestation also leads to soil erosion, reduced water quality, and increased risk of natural disasters like floods and landslides.
         </p>
       </div>
 
@@ -39,6 +39,7 @@ export const Deforestation = () => {
           />
         </div>
         <p className="text-gray-700 text-base leading-relaxed sm:text-lg">
+          In many cases, the land is never fully restored, leaving behind degraded landscapes. <br />
           Globally, deforestation is accelerating due to rising demand for food, fuel, and raw materials. Understanding what deforestation is—and why it matters—is the first step toward protecting our planet’s forests for future generations.
         </p>
       </div>

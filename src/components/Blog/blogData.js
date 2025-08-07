@@ -83,7 +83,7 @@ While governments and organizations lead large-scale reforestation efforts, **in
 
 ### 1. **Make Sustainable Consumer Choices**
 - **Reduce paper consumption**: Opt for digital bills/e-tickets, reuse scrap paper, and recycle.
-- **Choose FSC-certified wood products**: Look for the ![FSC logo](https://cdn.fsc.org/website/images/fsc-logo-small.svg) label ensuring responsible forestry.
+- **Choose FSC-certified wood products**: Look for the label ensuring responsible forestry. ![FSC logo](https://wwfint.awsassets.panda.org/img/original/losan_2.jpg) 
 - **Avoid palm oil or choose sustainable brands**: Palm oil drives deforestation in Indonesia and Malaysia. Use apps like [PalmOil Scan](https://www.palmoilscan.org/) to check products.
 
 ### 2. **Adopt a Tree-Conscious Diet**
@@ -109,8 +109,8 @@ While governments and organizations lead large-scale reforestation efforts, **in
 
 ### 6. **Invest in the Future**
 - **Donate to**:
-  - ![The Canopy Project](https://www.earthday.org/campaign/the-canopy-project/) (urban reforestation)
-  - ![Amazon Conservation Team](https://www.amazonteam.org/) (indigenous-led protection)
+  - ![The Canopy Project](https://www.earthday.org/wp-content/uploads/2022/06/NO-EDO-Canopy-Project-Logo-R-Blue-Transparent-Background.jpg) (urban reforestation)
+  - ![Amazon Conservation Team](https://landportal.org/sites/default/files/2023-05/act_logo_light_green_white_bg.png) (indigenous-led protection)
 - **Bank responsibly**: Some institutions fund deforestation. Check [Bank.Green](https://bank.green/) for eco-friendly options.
 
 > **"The best time to plant a tree was 20 years ago. The second best time is now."**  
@@ -124,16 +124,16 @@ While governments and organizations lead large-scale reforestation efforts, **in
 #### Every Action Counts
 Small daily choices—like skipping receipts or choosing bamboo toilet paper—add up to **save approximately 10 sq ft of forest per year per person**. Combined with collective advocacy, we can turn the tide against deforestation.
 
-![Hands planting a tree](https://images.unsplash.com/photo-1587486913049-53fc88980cfc?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80)
+![Hands planting a tree](https://media.istockphoto.com/id/974643844/photo/teach-kids-how-far-a-little-care-can-go.jpg?s=612x612&w=0&k=20&c=4iOSrEFNzbql6x3TOQfZsQLxhYK4RuStZO7NBp2x_DY=)
 `,
      },
      {
-  id: 4,
-  title: 'The Silent Crisis: Deforestation in Nigeria',
-  description: 'How Nigeria is losing its forests at an alarming rate and what it means for the nation’s future.',
-  image: 'https://i.natgeofe.com/n/9c1b0e8e-7e3c-4e2b-8c3f-5e5b5e3e3e3e/ng_deforestation_01.jpg',
-  date: 'August 8, 2025',
-  content: `
+          id: 4,
+          title: 'The Silent Crisis: Deforestation in Nigeria',
+          description: 'How Nigeria is losing its forests at an alarming rate and what it means for the nation’s future.',
+          image: 'https://cdn.vanguardngr.com/wp-content/uploads/2019/05/deforestation-e1557783338324.jpg',
+          date: 'August 8, 2025',
+          content: `
 ## The Vanishing Forests of Nigeria
 
 Nigeria has one of the highest deforestation rates globally, losing **3.5% of its forests annually**—equivalent to 350,000-400,000 hectares gone every year. What remains of Nigeria's once-vast rainforests (which originally covered **40% of the land**) now occupies less than **10%**.
@@ -190,8 +190,131 @@ Nigeria has one of the highest deforestation rates globally, losing **3.5% of it
 
 *"When we plant trees, we plant the seeds of peace and hope."*  
 — Wangari Maathai
-`
-}
+`,
+     },
+     // 1. Deforestation Statistics in Nigeria Per Zone (ID:5)
+     {
+          id: 5,
+          title: 'Zonal Deforestation Crisis: Nigeria’s Disappearing Forests',
+          description: 'A breakdown of deforestation rates across Nigeria’s six geopolitical zones',
+          image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Nigerian-deforrestation-b.jpg/250px-Nigerian-deforrestation-b.jpg',
+          date: 'August 10, 2025',
+          content: `
+## Nigeria’s Deforestation by Geopolitical Zone
+
+Recent satellite data reveals alarming forest loss patterns across Nigeria’s six zones:
+
+### **Northwest Zone** (Worst Affected)
+- **Annual loss**: 118,000 ha (11.4% of national total)
+- **Causes**: Firewood (85% household use), desert encroachment
+- **Hotspot**: Sokoto-Rima Basin lost 62% forest cover since 2000
+
+### **South-South Zone**
+- **Annual loss**: 97,000 ha 
+- **Causes**: Oil exploration (Mangrove destruction), logging
+- **Critical area**: Niger Delta mangroves declining at 3.6%/year
+
+### **Southwest Zone** 
+- **Annual loss**: 68,000 ha
+- **Causes**: Urban sprawl (Lagos-Ibadan corridor), cocoa farming
+- **Shocking stat**: Ogun lost 40% forests in 15 years
+
+### **Northcentral Zone**
+- **Annual loss**: 53,000 ha
+- **Causes**: Benue Valley farmland expansion, mining
+- **At risk**: Jos Plateau forest reserves now 30% original size
+
+### **Southeast Zone**
+- **Annual loss**: 47,000 ha
+- **Causes**: Illegal sawmills, Nteje timber markets
+- **Emergency**: Anambra’s last forests may disappear by 2030
+
+### **Northeast Zone**
+- **Annual loss**: 32,000 ha  
+- **Causes**: Boko Haram displacement camps, charcoal trade
+- **Silver lining**: Great Green Wall slowed desertification by 18%
+
+*Data Source: 2024 National Forestry Monitoring Report*
+`,
+     },
+
+     // 2. Deforestation in Africa (ID:6)
+     {
+          id: 6,
+          title: 'Continent in Crisis: Africa’s Deforestation Emergency',
+          description: 'How Africa lost 20% of its forests in just 25 years',
+          image: 'https://www.researchgate.net/publication/375797750/figure/fig1/AS:11431281256728808@1719566615884/Land-cover-map-in-Africa-The-land-cover-map-was-aggregated-from-the-International.jpg',
+          date: 'August 11, 2025',
+          content: `
+## Africa’s Forest Loss by the Numbers
+
+🌍 **Continental Overview**
+- 4.4 million hectares lost annually (FAO 2023)
+- 90% of deforestation caused by small-scale agriculture
+- Only 8% of original Congo Basin rainforest remains intact
+
+### **Top 5 Deforesting Nations**
+1. **DR Congo** - 1.2m ha/year (equivalent to 2 football fields/minute)
+2. **Angola** - 654,000 ha/year (Miombo woodland destruction)
+3. **Tanzania** - 474,000 ha/year (Charcoal production for Dar es Salaam)
+4. **Mozambique** - 298,000 ha/year (Chinese timber exports)
+5. **Nigeria** - 350,000 ha/year (Highest rate per capita)
+
+### **Critical Ecosystems at Risk**
+- **Congo Basin**: Loses 500,000 ha/year (Last refuge of forest elephants)
+- **Ethiopian Highlands**: 88% forest cover lost since 1900
+- **Madagascar**: 44% of rainforests gone since 1950 (Unique lemur habitats)
+
+### **Regional Initiatives Fighting Back**
+✅ **AFR100 Initiative**: 32 nations pledged to restore 100m ha by 2030  
+✅ **Congo Basin Blue Fund**: $1.6b conservation financing  
+✅ **East African Mangrove Project**: Replanted 12,000 ha in Kenya/Tanzania
+`,
+     },
+
+     // 3. Deforestation in Kwara State (ID:7)
+     {
+          id: 7,
+          title: 'Kwara’s Vanishing Woodlands: A State in Ecological Peril',
+          description: 'How Nigeria’s "Food Basket" is losing its forests to agriculture',
+          image: 'https://cdn.vanguardngr.com/wp-content/uploads/2023/08/kwara-map.webp',
+          date: 'August 12, 2025',
+          content: `
+## Kwara State’s Deforestation Crisis
+
+### **Current Status**
+- **Forest cover**: 18% of land area (down from 35% in 1990)
+- **Annual loss rate**: 8,200 hectares (3x national average)
+- **Primary cause**: Mechanized farming (80% of forest conversion)
+
+### **Ground Zero: Patigi LGA**
+- Former home to **Ilorin Emirate’s largest teak forests**
+- Now 70% converted to rice paddies and cassava farms
+- Last remaining **Afaka Forest Reserve** shrunk from 12,000ha to 3,200ha
+
+### **Economic vs Ecological Trade-Offs**
+💰 **Agriculture Boom**  
+- Kwara produces 14% of Nigeria’s soybeans  
+- 300% increase in maize farms since 2010
+
+🌳 **Environmental Cost**  
+- 62 bird species no longer sighted since 2015  
+- Seasonal rivers drying up (Ero River flow down 40%)  
+- Rising conflicts between farmers and Fulani herders
+
+### **Conservation Efforts**
+🌱 **Kwara Green Project** (2022-):  
+- Planted 1.2m trees along Asa River corridor  
+- Trained 600 women in agroforestry techniques  
+
+🛡️ **Protected Areas**  
+- **Owu Falls Forest Reserve**: Last intact ecosystem in Kwara South  
+- **Borgu Sector Complex**: Connects to Kainji National Park  
+
+*"Our children ask why there are no more monkeys. Soon they’ll ask why there’s no rain."*  
+— Local farmer in Kaiama
+`,
+     },
 ];
 
 export default blogPosts;
