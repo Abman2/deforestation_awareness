@@ -8,7 +8,7 @@ export const SideMenu = ({  isMenuOpen, setIsMenuOpen }) => {
       <NavLink to={"/about"} onClick={() => setIsMenuOpen(false)}>About Us</NavLink>
        <NavLink to={"/learn"} onClick={() => setIsMenuOpen(false)}>Learn</NavLink>
          <NavLink to={"/statistics"} onClick={() => setIsMenuOpen(false)}>Statistics</NavLink>
-      <NavLink to={"/gallery"} onClick={() => setIsMenuOpen(false)}>Gallery</NavLink>
+      <NavLink to={"/Blog"} onClick={() => setIsMenuOpen(false)}>Blog</NavLink>
       <NavLink to={"/quiz"} onClick={() => setIsMenuOpen(false)}>Quiz</NavLink>
       <NavLink to={"/contact"} onClick={() => setIsMenuOpen(false)}>Contact</NavLink>
      

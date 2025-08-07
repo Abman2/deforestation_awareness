@@ -28,7 +28,7 @@ export const NavBar = () => {
         
         <NavLink to="/statistics" className={navLinkClasses}>Statistics</NavLink>
         
-        <NavLink to="/gallery" className={navLinkClasses}>Gallery</NavLink>
+        <NavLink to="/blog" className={navLinkClasses}>Blog</NavLink>
                <NavLink to="/quiz" className={navLinkClasses}>Quiz</NavLink>
        
         
