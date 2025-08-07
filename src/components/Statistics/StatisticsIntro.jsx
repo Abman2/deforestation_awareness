@@ -1,6 +1,6 @@
 import React from 'react';
 
-// ✅ Import images
+
 import beforeDeforestation from '../../assets/Statistics/bf_deforestation.jpg';
 import afterDeforestation from '../../assets/Statistics/af_deforestation.png';
 

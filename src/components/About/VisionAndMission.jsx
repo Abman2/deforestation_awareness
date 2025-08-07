@@ -1,6 +1,6 @@
 import React from 'react';
 
-// ✅ Import images as variables
+
 import ourMissionImg from '../../assets/About/OurMission2.png';
 import ourVisionImg from '../../assets/About/OurVision.png';
 import whoAreWeImg from '../../assets/About/whoareweabout.png';
