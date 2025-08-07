@@ -19,7 +19,7 @@ const BlogPostPage = () => {
   }
 
   return (
-    <div className='bg-gradient-to-b from-white to-gray-50 min-h-screen'>
+    <div className='bg-gradient-to-b from-white to-gray-50 lg:min-h-screen'>
       {/* Header Image */}
       <div className='relative max-w-6xl mx-auto h-80'>
         <img src={post.image} alt={post.title} className='w-full h-full object-cover' />
@@ -30,7 +30,7 @@ const BlogPostPage = () => {
       </div>
 
       {/* Main Content + Sidebar */}
-      <div className='max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-10'>
+      <div className='max-w-6xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-[2fr_1fr] gap-10 md:bg-green-50'>
         {/* Main Article */}
         <div className='bg-white shadow-xl rounded-xl p-6'>
           <p className='text-sm text-gray-500 mb-4 italic'>📅 {post.date}</p>
@@ -41,6 +41,9 @@ const BlogPostPage = () => {
               ),
               h2: ({ node, ...props }) => (
                 <h2 className='text-2xl font-semibold text-green-700 mb-3' {...props} />
+              ),
+               h3: ({ node, ...props }) => (
+                <h3 className='text-xl font-semibold text-green-700 mb-3' {...props} />
               ),
               p: ({ node, ...props }) => (
                 <p className='text-gray-700 mb-4 leading-relaxed' {...props} />

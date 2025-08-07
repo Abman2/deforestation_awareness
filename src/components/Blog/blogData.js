@@ -209,27 +209,27 @@ Recent satellite data reveals alarming forest loss patterns across Nigeria’s s
 - **Causes**: Firewood (85% household use), desert encroachment
 - **Hotspot**: Sokoto-Rima Basin lost 62% forest cover since 2000
 
-### **South-South Zone**
+### South-South Zone
 - **Annual loss**: 97,000 ha 
 - **Causes**: Oil exploration (Mangrove destruction), logging
 - **Critical area**: Niger Delta mangroves declining at 3.6%/year
 
-### **Southwest Zone** 
+### Southwest Zone 
 - **Annual loss**: 68,000 ha
 - **Causes**: Urban sprawl (Lagos-Ibadan corridor), cocoa farming
 - **Shocking stat**: Ogun lost 40% forests in 15 years
 
-### **Northcentral Zone**
+### Northcentral Zone
 - **Annual loss**: 53,000 ha
 - **Causes**: Benue Valley farmland expansion, mining
 - **At risk**: Jos Plateau forest reserves now 30% original size
 
-### **Southeast Zone**
+### Southeast Zone
 - **Annual loss**: 47,000 ha
 - **Causes**: Illegal sawmills, Nteje timber markets
 - **Emergency**: Anambra’s last forests may disappear by 2030
 
-### **Northeast Zone**
+### Northeast Zone
 - **Annual loss**: 32,000 ha  
 - **Causes**: Boko Haram displacement camps, charcoal trade
 - **Silver lining**: Great Green Wall slowed desertification by 18%
