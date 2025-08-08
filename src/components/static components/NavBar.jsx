@@ -17,7 +17,7 @@ export const NavBar = () => {
      <header className=" max-w-7xl   h-16 sm:h-24 px-4 sm:px-6 lg:px-12 flex mx-auto items-center justify-between text-xl font-semibold">
       {/* Logo */}
       <div>
-        <img src="/logo.png" alt="logo" className="h-12 sm:h-20" />
+        <img src="/logo.png" alt="logo" className="h-16 sm:h-20  " />
       </div>
 
       {/* Desktop Navigation */}

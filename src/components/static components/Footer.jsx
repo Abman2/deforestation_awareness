@@ -31,7 +31,7 @@ const Footer = () => {
         <div>
           <h4 className="font-semibold text-lg mb-3">About Us</h4>
           <p className="text-sm text-gray-700 mb-4">
-           Deeproot is committed to raising awareness about the importance of forests and the devastating effects of deforestation. By empowering communities with knowledge, Deeproot aims to inspire sustainable practices that protect our planet's vital ecosystems.
+           Safe Forest is committed to raising awareness about the importance of forests and the devastating effects of deforestation. By empowering communities with knowledge, Deeproot aims to inspire sustainable practices that protect our planet's vital ecosystems.
           </p>
           <div className="flex gap-3">
             <FaFacebookF className="text-green-700 hover:text-green-900 cursor-pointer" />

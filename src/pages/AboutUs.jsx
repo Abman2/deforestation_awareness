@@ -6,7 +6,7 @@ import image_src from '../../src/assets/Home/heroSection2.png'
 export const AboutUs = () => {
   return (
     <div>
-        <HeroSection heading={"About Us"} bg={"bg-hero_bg"} image_src={image_src} details={"Deeproot is a passionate group of environmental advocates, educators, and storytellers committed to raising awareness about deforestation and its impact on our planet. Our mission is to spark conversations, empower communities, and inspire action to protect the world’s remaining forests before it’s too late."} button={"Learn More"}/>
+        <HeroSection heading={"About Us"} bg={"bg-hero_bg"} image_src={image_src} details={"Safe Forest is a passionate group of environmental advocates, educators, and storytellers committed to raising awareness about deforestation and its impact on our planet. Our mission is to spark conversations, empower communities, and inspire action to protect the world’s remaining forests before it’s too late."} button={"Learn More"}/>
       <VisionAndMission/>
     </div>
   )
