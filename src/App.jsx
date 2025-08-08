@@ -9,6 +9,7 @@ import { QuizPage } from './pages/Quiz';
 import { ContactForm } from './components/Contact/ContactForm';
 import { Blog } from './pages/Blog';
 import BlogPostPage from './components/Blog/BlogPostPage';
+import AdminPanel from './components/CSV printer/AdminPanel';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
                     <Route path='contact' element={<ContactForm/>} />
                      <Route path='blog' element={<Blog/>} />
                        <Route path="/blog/:id" element={<BlogPostPage />} />
+                        <Route path="/admin" element={<AdminPanel/>} />
                </Route>
           )
      );
