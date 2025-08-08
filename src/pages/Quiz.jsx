@@ -1,113 +1,8 @@
-
-import React, { useState, useEffect } from 'react';
-
-const rawQuizData = [
-  {
-    question: "What is deforestation?",
-    options: [
-      "Planting trees",
-      "Cutting down trees without replacing them",
-      "Saving forests",
-      "Building eco-homes",
-    ],
-    answer: 1,
-    explanation: "Deforestation refers to cutting down trees without adequate replanting or regeneration."
-  },
-  {
-    question: "Which of the following is a cause of deforestation?",
-    options: [
-      "Organic farming",
-      "Afforestation",
-      "Logging",
-      "Wildlife conservation",
-    ],
-    answer: 2,
-    explanation: "Logging removes trees for timber or paper, contributing to forest loss."
-  },
-  {
-    question: "Which continent has the highest rate of deforestation?",
-    options: ["Asia", "Africa", "Europe", "Australia"],
-    answer: 1,
-    explanation: "Africa currently has the highest net forest loss due to various economic pressures."
-  },
-  {
-    question: "What can help prevent deforestation?",
-    options: [
-      "Using recycled paper",
-      "Burning forests",
-      "Buying more furniture",
-      "Clearing land for farming",
-    ],
-    answer: 0,
-    explanation: "Recycling paper reduces the demand for new wood, thus saving trees."
-  },
-  {
-    question: "Which of these is a major environmental impact of deforestation?",
-    options: [
-      "Improved air quality",
-      "Increased biodiversity",
-      "Loss of wildlife habitats",
-      "Enhanced soil fertility",
-    ],
-    answer: 2,
-    explanation: "Forests are home to many species, and deforestation destroys their habitats."
-  },
-  {
-    question: "Which practice can reduce deforestation?",
-    options: [
-      "Shifting cultivation",
-      "Monoculture farming",
-      "Selective logging",
-      "Slash-and-burn agriculture",
-    ],
-    answer: 2,
-    explanation: "Selective logging minimizes environmental damage compared to clear-cutting."
-  },
-  {
-    question: "How does deforestation affect climate change?",
-    options: [
-      "It cools the Earth's surface",
-      "It reduces rainfall",
-      "It lowers sea levels",
-      "It increases carbon dioxide in the atmosphere",
-    ],
-    answer: 3,
-    explanation: "Trees absorb carbon dioxide, so removing them increases atmospheric CO₂."
-  },
-  {
-    question: "Which international agreement aims to protect forests?",
-    options: [
-      "Kyoto Protocol",
-      "Montreal Protocol",
-      "Paris Agreement",
-      "REDD+ Initiative",
-    ],
-    answer: 3,
-    explanation: "REDD+ is a UN initiative aimed at reducing emissions from deforestation."
-  },
-  {
-    question: "What is a social consequence of deforestation?",
-    options: [
-      "Better housing for all",
-      "Displacement of indigenous people",
-      "Lower food production",
-      "Increase in rural tourism",
-    ],
-    answer: 1,
-    explanation: "Many indigenous communities are forced to relocate due to forest loss."
-  },
-  {
-    question: "Which of these is a sustainable alternative to deforestation?",
-    options: [
-      "Clear-cutting",
-      "Agroforestry",
-      "Urban expansion",
-      "Open-pit mining",
-    ],
-    answer: 1,
-    explanation: "Agroforestry integrates trees into farming systems, preserving forest cover."
-  }
-];
+// src/QuizPage.js
+import React, { useState, useEffect } from "react";
+import { rawQuizData, feedbackQuestion } from "../components/Quiz/quizData";
+import { db } from "../components/Quiz/firebaseConfig";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
 function shuffleArray(array) {
   const shuffled = [...array];
@@ -123,8 +18,12 @@ export const QuizPage = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [score, setScore] = useState(0);
-  const [showResult, setShowResult] = useState(false);
   const [hasAnswered, setHasAnswered] = useState(false);
+  const [showResult, setShowResult] = useState(false);
+  const [name, setName] = useState("");
+  const [nameSubmitted, setNameSubmitted] = useState(false);
+  const [answers, setAnswers] = useState([]);
+  const [feedback, setFeedback] = useState("");
 
   useEffect(() => {
     const shuffled = shuffleArray(
@@ -138,107 +37,145 @@ export const QuizPage = () => {
 
   const handleOptionClick = (index) => {
     if (hasAnswered) return;
+
+    // If we are at the feedback question
+    if (currentQuestion === quizData.length) {
+      setFeedback(feedbackQuestion.options[index]);
+      setHasAnswered(true);
+      return;
+    }
+
     const correctAnswerIndex = quizData[currentQuestion].options.indexOf(
       rawQuizData.find(q => q.question === quizData[currentQuestion].question).options[quizData[currentQuestion].answer]
     );
+
     setSelectedOption(index);
     setHasAnswered(true);
-    if (index === correctAnswerIndex) {
-      setScore(score + 1);
-    }
+
+    const isCorrect = index === correctAnswerIndex;
+    if (isCorrect) setScore(prev => prev + 1);
+
+    setAnswers(prev => [
+      ...prev,
+      {
+        question: quizData[currentQuestion].question,
+        selected: quizData[currentQuestion].options[index],
+        correct: isCorrect
+      }
+    ]);
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     setSelectedOption(null);
     setHasAnswered(false);
-    if (currentQuestion + 1 < quizData.length) {
-      setCurrentQuestion(currentQuestion + 1);
+
+    if (currentQuestion < quizData.length) {
+      setCurrentQuestion(prev => prev + 1);
     } else {
+      // Quiz finished, send data to Firebase
+      try {
+        await addDoc(collection(db, "quizResults"), {
+          name,
+          score,
+          totalQuestions: quizData.length,
+          answers,
+          feedback,
+          timestamp: serverTimestamp()
+        });
+      } catch (err) {
+        console.error("Error saving to Firebase", err);
+      }
       setShowResult(true);
     }
   };
 
-  const handleRestart = () => {
-    const reshuffled = shuffleArray(
-      rawQuizData.map(q => ({
-        ...q,
-        options: shuffleArray(q.options)
-      }))
-    );
-    setQuizData(reshuffled);
-    setCurrentQuestion(0);
-    setSelectedOption(null);
-    setScore(0);
-    setShowResult(false);
-    setHasAnswered(false);
+  const handleNameSubmit = () => {
+    if (name.trim()) {
+      setNameSubmitted(true);
+    }
   };
+
+  if (!nameSubmitted) {
+    return (
+      <div className="max-w-md mx-auto mt-20 text-center">
+        <h1 className="text-2xl font-bold mb-4">Enter Your Name</h1>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          className="border px-4 py-2 rounded w-full mb-4"
+          placeholder="Your name"
+        />
+        <button
+          onClick={handleNameSubmit}
+          className="bg-green-600 text-white px-6 py-2 rounded"
+        >
+          Start Quiz
+        </button>
+      </div>
+    );
+  }
 
   if (quizData.length === 0) return null;
 
-  const currentRawQuestion = rawQuizData.find(q => q.question === quizData[currentQuestion].question);
-  const correctAnswerText = currentRawQuestion.options[currentRawQuestion.answer];
-  const explanation = currentRawQuestion.explanation;
+  if (showResult) {
+    return (
+      <div className="max-w-lg mx-auto text-center mt-20 bg-white p-6 rounded shadow">
+        <h2 className="text-2xl font-bold text-green-700">Your Score: {score} / {quizData.length}</h2>
+        <p className="mt-4 text-gray-700">Thanks for completing the quiz!</p>
+      </div>
+    );
+  }
+
+  const isFeedbackQuestion = currentQuestion === quizData.length;
 
   return (
-    <div className="max-w-3xl mx-auto px-4 py-16 text-center ">
+    <div className="max-w-3xl mx-auto px-4 py-10 text-center">
       <h1 className="text-3xl font-bold mb-6 text-green-800">Deforestation Awareness Quiz</h1>
 
-      {showResult ? (
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h2 className="text-2xl font-semibold text-green-700 mb-4">Your Score: {score} / {quizData.length}</h2>
-          <p className="text-gray-700 text-base mb-4">
-            {score === quizData.length
-              ? "Excellent! You're a forest hero."
-              : score >= 2
-              ? "Good job! Keep learning and sharing."
-              : "You can do better! Try again to learn more."}
-          </p>
-          <button
-            onClick={handleRestart}
-            className="mt-4 px-6 py-3 bg-green-600 text-white font-medium rounded hover:bg-green-700 transition-colors"
-          >
-            Try Again
-          </button>
+      <div className="bg-white p-6 rounded-lg shadow-md">
+        <h2 className="text-xl font-semibold text-gray-800 mb-4">
+          Question {currentQuestion + 1} of {quizData.length + 1}
+        </h2>
+
+        <p className="text-gray-700 mb-6 text-lg font-medium">
+          {isFeedbackQuestion ? feedbackQuestion.question : quizData[currentQuestion].question}
+        </p>
+
+        <div className="grid grid-cols-1 gap-4">
+          {(isFeedbackQuestion ? feedbackQuestion.options : quizData[currentQuestion].options).map((option, index) => (
+            <button
+              key={index}
+              onClick={() => handleOptionClick(index)}
+              disabled={hasAnswered}
+              className={`border px-4 py-3 rounded text-left transition-colors text-gray-800 ${
+                selectedOption === index ? 'bg-green-100 border-green-500' : 'hover:bg-gray-100 border-gray-300'
+              }`}
+            >
+              {option}
+            </button>
+          ))}
         </div>
-      ) : (
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h2 className="text-xl font-semibold text-gray-800 mb-4">
-            Question {currentQuestion + 1} of {quizData.length}
-          </h2>
-          <p className="text-gray-700 mb-6 text-lg font-medium">
-            {quizData[currentQuestion].question}
-          </p>
-          <div className="grid grid-cols-1 gap-4">
-            {quizData[currentQuestion].options.map((option, index) => (
-              <button
-                key={index}
-                onClick={() => handleOptionClick(index)}
-                disabled={hasAnswered}
-                className={`border px-4 py-3 rounded text-left transition-colors text-gray-800 ${
-                  selectedOption === index ? 'bg-green-100 border-green-500' : 'hover:bg-gray-100 border-gray-300'
-                }`}
-              >
-                {option}
-              </button>
-            ))}
+
+        {!isFeedbackQuestion && hasAnswered && (
+          <div className="mt-4 text-sm text-left text-gray-700">
+            <p className="font-medium">
+              Correct Answer: {rawQuizData.find(q => q.question === quizData[currentQuestion].question).options[rawQuizData.find(q => q.question === quizData[currentQuestion].question).answer]}
+            </p>
+            <p className="mt-1 italic">
+              Explanation: {rawQuizData.find(q => q.question === quizData[currentQuestion].question).explanation}
+            </p>
           </div>
+        )}
 
-          {hasAnswered && (
-            <div className="mt-4 text-sm text-left text-gray-700">
-              <p className="font-medium">Correct Answer: {correctAnswerText}</p>
-              <p className="mt-1 italic">Explanation: {explanation}</p>
-            </div>
-          )}
-
-          <button
-            onClick={handleNext}
-            disabled={!hasAnswered}
-            className="mt-6 px-6 py-2 bg-green-700 text-white font-medium rounded disabled:opacity-50"
-          >
-            {currentQuestion + 1 === quizData.length ? 'Finish' : 'Next'}
-          </button>
-        </div>
-      )}
+        <button
+          onClick={handleNext}
+          disabled={!hasAnswered}
+          className="mt-6 px-6 py-2 bg-green-700 text-white font-medium rounded disabled:opacity-50"
+        >
+          {isFeedbackQuestion ? 'Finish' : 'Next'}
+        </button>
+      </div>
     </div>
   );
 };
