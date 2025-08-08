@@ -67,7 +67,7 @@ const Footer = () => {
 
       {/* Footer Bottom */}
       <div className="mt-10 border-t border-gray-200 pt-5 text-center text-sm text-gray-600">
-        © 2025 Deep Root. All rights reserved.
+        © 2025 Safe Forest. All rights reserved.
       </div>
     </footer>
   );
