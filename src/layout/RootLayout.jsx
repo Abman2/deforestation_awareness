@@ -7,7 +7,7 @@ export const RootLayout = () => {
   return (
     <div className="flex flex-col min-h-screen w-full">
         <NavBar/>
-       <div className='flex-grow'> <Outlet/></div>
+       <div className='flex-grow '> <Outlet/></div>
         <Footer/>
     </div>
   )

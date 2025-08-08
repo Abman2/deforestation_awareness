@@ -60,7 +60,7 @@ export const WhyAwarenessMatters = () => {
         <img
           src={forestImg}
           alt="Lush green forest"
-          className="rounded-lg w-full h-auto object-cover max-h-[450px] shadow-md"
+          className="rounded-lg w-full h-auto object-cover max-h-[450px] shadow-md hover:scale-105 transition-transform duration-300"
         />
       </div>
     </section>

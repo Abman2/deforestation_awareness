@@ -38,28 +38,28 @@ export const QuizPage = () => {
   const handleOptionClick = (index) => {
     if (hasAnswered) return;
 
-    // If we are at the feedback question
     if (currentQuestion === quizData.length) {
       setFeedback(feedbackQuestion.options[index]);
       setHasAnswered(true);
       return;
     }
 
-    const correctAnswerIndex = quizData[currentQuestion].options.indexOf(
-      rawQuizData.find(q => q.question === quizData[currentQuestion].question).options[quizData[currentQuestion].answer]
-    );
+    const currentQ = quizData[currentQuestion];
+    const originalQ = rawQuizData.find(q => q.question === currentQ.question);
+    const correctAnswer = originalQ.options[originalQ.answer];
+    const selectedAnswer = currentQ.options[index];
+
+    const isCorrect = selectedAnswer === correctAnswer;
+    if (isCorrect) setScore(prev => prev + 1);
 
     setSelectedOption(index);
     setHasAnswered(true);
 
-    const isCorrect = index === correctAnswerIndex;
-    if (isCorrect) setScore(prev => prev + 1);
-
     setAnswers(prev => [
       ...prev,
       {
-        question: quizData[currentQuestion].question,
-        selected: quizData[currentQuestion].options[index],
+        question: currentQ.question,
+        selected: selectedAnswer,
         correct: isCorrect
       }
     ]);
@@ -72,7 +72,6 @@ export const QuizPage = () => {
     if (currentQuestion < quizData.length) {
       setCurrentQuestion(prev => prev + 1);
     } else {
-      // Quiz finished, send data to Firebase
       try {
         await addDoc(collection(db, "quizResults"), {
           name,
@@ -97,7 +96,7 @@ export const QuizPage = () => {
 
   if (!nameSubmitted) {
     return (
-      <div className="max-w-md mx-auto mt-20 text-center">
+      <div className="max-w-xs sm:max-w-md mx-auto mt-20 text-center">
         <h1 className="text-2xl font-bold mb-4">Enter Your Name</h1>
         <input
           type="text"
@@ -120,7 +119,7 @@ export const QuizPage = () => {
 
   if (showResult) {
     return (
-      <div className="max-w-lg mx-auto text-center mt-20 bg-white p-6 rounded shadow">
+      <div className="max-w-xs sm:max-w-xl mx-auto text-center mt-20 bg-white p-6 rounded shadow">
         <h2 className="text-2xl font-bold text-green-700">Your Score: {score} / {quizData.length}</h2>
         <p className="mt-4 text-gray-700">Thanks for completing the quiz!</p>
       </div>
@@ -128,6 +127,9 @@ export const QuizPage = () => {
   }
 
   const isFeedbackQuestion = currentQuestion === quizData.length;
+  const currentQ = quizData[currentQuestion];
+  const originalQ = rawQuizData.find(q => q.question === currentQ?.question);
+  const correctAnswer = originalQ?.options[originalQ?.answer];
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-10 text-center">
@@ -139,31 +141,39 @@ export const QuizPage = () => {
         </h2>
 
         <p className="text-gray-700 mb-6 text-lg font-medium">
-          {isFeedbackQuestion ? feedbackQuestion.question : quizData[currentQuestion].question}
+          {isFeedbackQuestion ? feedbackQuestion.question : currentQ.question}
         </p>
 
         <div className="grid grid-cols-1 gap-4">
-          {(isFeedbackQuestion ? feedbackQuestion.options : quizData[currentQuestion].options).map((option, index) => (
-            <button
-              key={index}
-              onClick={() => handleOptionClick(index)}
-              disabled={hasAnswered}
-              className={`border px-4 py-3 rounded text-left transition-colors text-gray-800 ${
-                selectedOption === index ? 'bg-green-100 border-green-500' : 'hover:bg-gray-100 border-gray-300'
-              }`}
-            >
-              {option}
-            </button>
-          ))}
+          {(isFeedbackQuestion ? feedbackQuestion.options : currentQ.options).map((option, index) => {
+            const isSelected = selectedOption === index;
+            const isCorrect = isSelected && option === correctAnswer;
+            const isWrong = isSelected && option !== correctAnswer;
+
+            return (
+              <button
+                key={index}
+                onClick={() => handleOptionClick(index)}
+                disabled={hasAnswered}
+                className={`border px-4 py-3 rounded text-left transition-colors text-gray-800
+                  ${isCorrect ? 'bg-green-100 border-green-500' : ''}
+                  ${isWrong ? 'bg-red-100 border-red-500' : ''}
+                  ${!isSelected && !hasAnswered ? 'hover:bg-gray-100 border-gray-300' : ''}
+                `}
+              >
+                {option}
+              </button>
+            );
+          })}
         </div>
 
         {!isFeedbackQuestion && hasAnswered && (
           <div className="mt-4 text-sm text-left text-gray-700">
             <p className="font-medium">
-              Correct Answer: {rawQuizData.find(q => q.question === quizData[currentQuestion].question).options[rawQuizData.find(q => q.question === quizData[currentQuestion].question).answer]}
+              Correct Answer: {correctAnswer}
             </p>
             <p className="mt-1 italic">
-              Explanation: {rawQuizData.find(q => q.question === quizData[currentQuestion].question).explanation}
+              Explanation: {originalQ.explanation}
             </p>
           </div>
         )}
