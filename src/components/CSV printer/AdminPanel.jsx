@@ -3,15 +3,29 @@ import { downloadCSV } from "./csv";
 
 export default function AdminPanel() {
   const [logs, setLogs] = useState([]);
+  const [visitorCount, setVisitorCount] = useState(0);
 
   useEffect(() => {
     const storedLogs = JSON.parse(localStorage.getItem("userLogs") || "[]");
     setLogs(storedLogs.reverse()); // latest first
+    setVisitorCount(storedLogs.length); // count of visits
+
+    // Auto-update counter every 5 seconds
+    const interval = setInterval(() => {
+      const updatedLogs = JSON.parse(localStorage.getItem("userLogs") || "[]");
+      setLogs(updatedLogs.reverse());
+      setVisitorCount(updatedLogs.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="p-6">
-      <h1 className="text-2xl font-bold mb-4">User Visit Tracker</h1>
+      <h1 className="text-2xl font-bold mb-2">User Visit Tracker</h1>
+      <p className="text-lg mb-4">
+        <strong>Total Visitors:</strong> {visitorCount}
+      </p>
 
       <button
         onClick={() => downloadCSV(logs)}
