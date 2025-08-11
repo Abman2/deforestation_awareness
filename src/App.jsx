@@ -14,9 +14,10 @@ import AdminPanel from './components/CSV printer/AdminPanel';
 import { initGA, trackPageView, logUserDetails } from './utils/tracker';
 
 function App() {
-     useEffect(() => {
-          initGA();
-     }, []);
+    useEffect(() => {
+    initGA();
+    trackPageView(window.location.pathname + window.location.search);
+  }, []);
 
      const router = createBrowserRouter(
           createRoutesFromElements(
