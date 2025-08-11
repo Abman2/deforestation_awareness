@@ -25,7 +25,6 @@ export default function AdminPanel() {
     });
   };
 
-  // Process visitor logs
   useEffect(() => {
     const processLogs = () => {
       const storedLogs = JSON.parse(localStorage.getItem("userLogs") || "[]");
@@ -69,7 +68,6 @@ export default function AdminPanel() {
     return () => clearInterval(interval);
   }, []);
 
-  // Fetch quiz responses
   useEffect(() => {
     const fetchQuizResponses = async () => {
       try {
@@ -86,7 +84,6 @@ export default function AdminPanel() {
     fetchQuizResponses();
   }, []);
 
-  // Generate and download visitors CSV
   const downloadVisitorsCSV = () => {
     if (!logs.length) {
       alert("No visitor logs found.");
@@ -109,84 +106,88 @@ export default function AdminPanel() {
   };
 
   return (
-    <div className="p-6">
+    <div className="p-4 sm:p-6">
       {/* Visitors Section */}
-      <h1 className="text-2xl font-bold mb-2">User Visit Tracker</h1>
-      <p className="text-lg mb-4">
+      <h1 className="text-xl sm:text-2xl font-bold mb-2">User Visit Tracker</h1>
+      <p className="text-base sm:text-lg mb-4">
         <strong>Total Unique Visitors:</strong> {visitorCount}
       </p>
 
-      <table className="w-full border-collapse border border-gray-300 mb-4">
-        <thead>
-          <tr className="bg-gray-200">
-            <th className="border border-gray-300 p-2">Timestamp</th>
-            <th className="border border-gray-300 p-2">Pages Visited</th>
-            <th className="border border-gray-300 p-2">State</th>
-            <th className="border border-gray-300 p-2">Country</th>
-            <th className="border border-gray-300 p-2">IP</th>
-            <th className="border border-gray-300 p-2">Device Info</th>
-          </tr>
-        </thead>
-        <tbody>
-          {latestVisitors.length > 0 ? (
-            latestVisitors.map((log, index) => (
-              <tr key={index}>
-                <td className="border border-gray-300 p-2">{log.timestamp}</td>
-                <td className="border border-gray-300 p-2">{log.pageVisited.join(", ")}</td>
-                <td className="border border-gray-300 p-2">{log.state}</td>
-                <td className="border border-gray-300 p-2">{log.country}</td>
-                <td className="border border-gray-300 p-2">{log.ip}</td>
-                <td className="border border-gray-300 p-2">{log.deviceInfo}</td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="6" className="text-center p-4">No visitor data found</td>
+      <div className="overflow-x-auto">
+        <table className="min-w-full border-collapse border border-gray-300 mb-4 text-sm sm:text-base">
+          <thead>
+            <tr className="bg-gray-200">
+              <th className="border border-gray-300 p-2">Timestamp</th>
+              <th className="border border-gray-300 p-2">Pages Visited</th>
+              <th className="border border-gray-300 p-2">State</th>
+              <th className="border border-gray-300 p-2">Country</th>
+              <th className="border border-gray-300 p-2">IP</th>
+              <th className="border border-gray-300 p-2">Device Info</th>
             </tr>
-          )}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {latestVisitors.length > 0 ? (
+              latestVisitors.map((log, index) => (
+                <tr key={index} className="hover:bg-gray-100">
+                  <td className="border border-gray-300 p-2">{log.timestamp}</td>
+                  <td className="border border-gray-300 p-2">{log.pageVisited.join(", ")}</td>
+                  <td className="border border-gray-300 p-2">{log.state}</td>
+                  <td className="border border-gray-300 p-2">{log.country}</td>
+                  <td className="border border-gray-300 p-2">{log.ip}</td>
+                  <td className="border border-gray-300 p-2">{log.deviceInfo}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="6" className="text-center p-4">No visitor data found</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
 
       <button
         onClick={downloadVisitorsCSV}
-        className="border bg-green-600 text-white rounded-md px-6 py-2 mb-10"
+        className="border bg-green-600 text-white rounded-md px-4 sm:px-6 py-2 mb-10 text-sm sm:text-base"
       >
         Download All Visitor Details
       </button>
 
       {/* Quiz Responses Section */}
-      <h1 className="text-2xl font-bold mb-2">Quiz Responses</h1>
+      <h1 className="text-xl sm:text-2xl font-bold mb-2">Quiz Responses</h1>
 
-      <table className="w-full border-collapse border border-gray-300 mb-4">
-        <thead>
-          <tr className="bg-gray-200">
-            <th className="border border-gray-300 p-2">Name</th>
-            <th className="border border-gray-300 p-2">Score</th>
-            <th className="border border-gray-300 p-2"> Website Rating</th>
-            <th className="border border-gray-300 p-2">Timestamp</th>
-          </tr>
-        </thead>
-        <tbody>
-          {quizResponses.length > 0 ? (
-            quizResponses.map((entry, index) => (
-              <tr key={index}>
-                <td className="border border-gray-300 p-2">{entry.name}</td>
-                <td className="border border-gray-300 p-2">{entry.score}</td>
-                <td className="border border-gray-300 p-2">{entry.feedback || "N/A"}</td>
-                <td className="border border-gray-300 p-2">{formatTimestamp(entry.timestamp)}</td>
-              </tr>
-            ))
-          ) : (
-            <tr>
-              <td colSpan="4" className="text-center p-4">No quiz responses found</td>
+      <div className="overflow-x-auto">
+        <table className="min-w-full border-collapse border border-gray-300 mb-4 text-sm sm:text-base">
+          <thead>
+            <tr className="bg-gray-200">
+              <th className="border border-gray-300 p-2">Name</th>
+              <th className="border border-gray-300 p-2">Score</th>
+              <th className="border border-gray-300 p-2">Website Rating</th>
+              <th className="border border-gray-300 p-2">Timestamp</th>
             </tr>
-          )}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {quizResponses.length > 0 ? (
+              quizResponses.map((entry, index) => (
+                <tr key={index} className="hover:bg-gray-100">
+                  <td className="border border-gray-300 p-2">{entry.name}</td>
+                  <td className="border border-gray-300 p-2">{entry.score}</td>
+                  <td className="border border-gray-300 p-2">{entry.feedback || "N/A"}</td>
+                  <td className="border border-gray-300 p-2">{formatTimestamp(entry.timestamp)}</td>
+                </tr>
+              ))
+            ) : (
+              <tr>
+                <td colSpan="4" className="text-center p-4">No quiz responses found</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
 
       <button
         onClick={() => downloadQuizCSV()}
-        className="border bg-blue-600 text-white rounded-md px-6 py-2"
+        className="border bg-blue-600 text-white rounded-md px-4 sm:px-6 py-2 text-sm sm:text-base"
       >
         Download All Quiz Results
       </button>
