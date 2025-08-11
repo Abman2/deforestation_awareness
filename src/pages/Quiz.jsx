@@ -23,7 +23,7 @@ export const QuizPage = () => {
   const [name, setName] = useState("");
   const [nameSubmitted, setNameSubmitted] = useState(false);
   const [answers, setAnswers] = useState([]);
-  const [feedback, setFeedback] = useState("");
+  const [feedback, setFeedback] = useState([]);
 
   useEffect(() => {
     const shuffled = shuffleArray(
@@ -35,11 +35,22 @@ export const QuizPage = () => {
     setQuizData(shuffled);
   }, []);
 
+  const totalQuestions = quizData.length + feedbackQuestion.length;
+  const isFeedbackQuestion = currentQuestion >= quizData.length;
+
   const handleOptionClick = (index) => {
     if (hasAnswered) return;
 
-    if (currentQuestion === quizData.length) {
-      setFeedback(feedbackQuestion.options[index]);
+    if (isFeedbackQuestion) {
+      const feedbackQ = feedbackQuestion[currentQuestion - quizData.length];
+      setFeedback(prev => [
+        ...prev,
+        {
+          question: feedbackQ.question,
+          selected: feedbackQ.options[index]
+        }
+      ]);
+      setSelectedOption(index);
       setHasAnswered(true);
       return;
     }
@@ -69,7 +80,7 @@ export const QuizPage = () => {
     setSelectedOption(null);
     setHasAnswered(false);
 
-    if (currentQuestion < quizData.length) {
+    if (currentQuestion < totalQuestions - 1) {
       setCurrentQuestion(prev => prev + 1);
     } else {
       try {
@@ -126,8 +137,10 @@ export const QuizPage = () => {
     );
   }
 
-  const isFeedbackQuestion = currentQuestion === quizData.length;
-  const currentQ = quizData[currentQuestion];
+  const currentQ = isFeedbackQuestion
+    ? feedbackQuestion[currentQuestion - quizData.length]
+    : quizData[currentQuestion];
+
   const originalQ = rawQuizData.find(q => q.question === currentQ?.question);
   const correctAnswer = originalQ?.options[originalQ?.answer];
 
@@ -137,15 +150,15 @@ export const QuizPage = () => {
 
       <div className="bg-white p-6 rounded-lg shadow-md">
         <h2 className="text-xl font-semibold text-gray-800 mb-4">
-          Question {currentQuestion + 1} of {quizData.length + 1}
+          Question {currentQuestion + 1} of {totalQuestions}
         </h2>
 
         <p className="text-gray-700 mb-6 text-lg font-medium">
-          {isFeedbackQuestion ? feedbackQuestion.question : currentQ.question}
+          {currentQ.question}
         </p>
 
         <div className="grid grid-cols-1 gap-4">
-          {(isFeedbackQuestion ? feedbackQuestion.options : currentQ.options).map((option, index) => {
+          {currentQ.options.map((option, index) => {
             const isSelected = selectedOption === index;
             const isCorrect = isSelected && option === correctAnswer;
             const isWrong = isSelected && option !== correctAnswer;
@@ -183,7 +196,7 @@ export const QuizPage = () => {
           disabled={!hasAnswered}
           className="mt-6 px-6 py-2 bg-green-700 text-white font-medium rounded disabled:opacity-50"
         >
-          {isFeedbackQuestion ? 'Finish' : 'Next'}
+          {currentQuestion === totalQuestions - 1 ? 'Finish' : 'Next'}
         </button>
       </div>
     </div>

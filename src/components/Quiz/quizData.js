@@ -115,8 +115,16 @@ export const rawQuizData = [
   },
 
 ];
-export const feedbackQuestion = {
+export const feedbackQuestion = [
+  {
+  question: "How serious do you think Deforestation is an environmental problem?",
+  options: ["extremely unserious", " Somewhat Unserious", "Neutral", "Serious", "Extremely Serious"],
+  explanation: null // No scoring
+},
+  {
   question: "How would you rate this website's performance?",
   options: ["Very Good", "Good", "Average", "Poor", "Very Bad"],
   explanation: null // No scoring
-};
+},
+
+];
