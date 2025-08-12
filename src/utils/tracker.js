@@ -1,4 +1,3 @@
-// C:\Users\USER\Desktop\ml journey\New Journey on Python\deforestation\src\utils\tracker.js
 import ReactGA from "react-ga4";
 
 export const initGA = () => {
