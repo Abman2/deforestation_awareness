@@ -1,35 +1,37 @@
 import ReactGA from "react-ga4";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "../components/Quiz/firebaseConfig"; // Adjust import path
 
 export const initGA = () => {
-    ReactGA.initialize("G-NTYV5E1G2T"); // Replace with your GA Measurement ID
+  ReactGA.initialize("G-NTYV5E1G2T"); // Your GA Measurement ID
 };
 
 export const trackPageView = (url) => {
-    ReactGA.send({ hitType: "pageview", page: url });
+  ReactGA.send({ hitType: "pageview", page: url });
 };
 
 export const logUserDetails = async (page) => {
-    try {
-        const res = await fetch("https://ipapi.co/json/");
-        const data = await res.json();
+  try {
+    // Send pageview to GA
+    trackPageView(page);
 
-        const logData = {
-            timestamp: new Date().toISOString(),
-            pageVisited: page,
-            location: `${data.city}, ${data.region}, ${data.country_name}`,
-            ip: data.ip,
-            deviceInfo: navigator.userAgent
-        };
+    // Fetch IP and location data
+    const res = await fetch("https://ipapi.co/json/");
+    const data = await res.json();
 
-        // Get old logs
-        const logs = JSON.parse(localStorage.getItem("userLogs") || "[]");
-        logs.push(logData);
+    const logData = {
+      timestamp: serverTimestamp(), // Firestore server timestamp
+      pageVisited: page,
+      location: `${data.city}, ${data.region}, ${data.country_name}`,
+      ip: data.ip,
+      deviceInfo: navigator.userAgent,
+    };
 
-        // Save updated logs
-        localStorage.setItem("userLogs", JSON.stringify(logs));
+    // Save to Firestore visitorLogs collection
+    await addDoc(collection(db, "visitorLogs"), logData);
 
-        console.log("User logged:", logData);
-    } catch (error) {
-        console.error("Error getting user details:", error);
-    }
+    console.log("User logged to Firestore and GA:", logData);
+  } catch (error) {
+    console.error("Error logging user details:", error);
+  }
 };
