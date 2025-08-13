@@ -36,7 +36,7 @@ export async function downloadCSV() {
     );
 
     // Step 2: Build headers (real question text as columns)
-    const baseHeaders = ["Name", "Score", "Feedback", "Timestamp"];
+    const baseHeaders = ["Name", "Score", "Deforestation impact Feedback","website rating", "Timestamp"];
     const headers = [...baseHeaders, ...allQuestions];
     const headerRow = headers.join(",");
 
@@ -50,7 +50,8 @@ export async function downloadCSV() {
       return headers.map(header => {
         if (header === "Name") return `"${entry.name || ""}"`;
         if (header === "Score") return `"${entry.score || 0}"`;
-        if (header === "Feedback") return `"${entry.feedback || ""}"`;
+        if (header === "Deforestation impact Feedback") return `"${(entry.feedback && entry.feedback[0] && entry.feedback[0]["selected"])|| ""}"`;
+        if (header === "website rating") return `"${(entry.feedback && entry.feedback[1] && entry.feedback[1]["selected"]) || entry.feedback || ""}"`;
         if (header === "Timestamp") return `"${formattedTime}"`;
         return `"${answerMap[header] ?? ""}"`;
       }).join(",");
